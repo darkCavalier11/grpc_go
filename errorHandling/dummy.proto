@@ -17,3 +17,9 @@ service SimpleCalculatorService {
   // Error being sent is INVALID_ARGUMENT
   rpc Sqrt (SqrtRequest) returns (SqrtResponse) {};
 }
+
+service TimeConsumingService {
+  // error handling
+  // Error being sent is of type CANCELLED
+  rpc ExpensiveSqrt(SqrtRequest) returns (SqrtResponse) {}
+}
