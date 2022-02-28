@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package errorHandling;
+
+option go_package = "errorHandling/gen";
+
+message SqrtRequest {
+  double reqNum = 1;
+}
+
+message SqrtResponse {
+  double resNum = 1;
+}
+
+service SimpleCalculatorService {
+  // error handling
+  // Error being sent is INVALID_ARGUMENT
+  rpc Sqrt (SqrtRequest) returns (SqrtResponse) {};
+}
