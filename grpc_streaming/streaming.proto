@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package server_streaming;
+
+option go_package="grpc_streaming/gen";
+
+message SimpleRequest {
+  string request = 1;
+}
+
+message SimpleResponse {
+  string response = 1;
+}
+
+service ServerStreamingService {
+  rpc ServerStreaming(SimpleRequest) returns (stream SimpleResponse) {};
+}
+
+service ClientStreamingService {
+  rpc ClientStreaming(stream SimpleRequest) returns (SimpleResponse) {};
+}
+
+service BiDirectionalStreamingService {
+  rpc BiDirectionalStreaming(stream SimpleRequest) returns (stream SimpleResponse) {};
+}

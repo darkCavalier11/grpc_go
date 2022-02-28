@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package unary;
+
+option go_package = "/grpc_unary/gen";
+
+message UnaryRequest {
+  string request = 1;
+}
+
+message UnaryResponse {
+  string response = 1;
+}
+
+service UnaryService {
+  rpc Unary(UnaryRequest) returns (UnaryResponse) {};
+}
+
+
